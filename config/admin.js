@@ -17,7 +17,7 @@ module.exports = ({ env }) => ({
   preview: {
     enabled: true,
     config: {
-      allowedOrigins: env('CLIENT_URL'), // Usually http://localhost:3000
+      allowedOrigins: https://github.com/tpethkar9123/strapi-cloud-template-blog-6c146469f1, // Usually http://localhost:3000
       async handler(uid, { documentId, locale, status }) {
         const document = await strapi.documents(uid).findOne({ documentId });
         
@@ -32,7 +32,7 @@ module.exports = ({ env }) => ({
           status,
         });
 
-        return `${env('CLIENT_URL')}/api/preview?${urlSearchParams}`;
+        return `${https://github.com/tpethkar9123/strapi-cloud-template-blog-6c146469f1}/api/preview?${urlSearchParams}`;
       },
     },
   },
