@@ -28,7 +28,7 @@ module.exports = ({ env }) => ({
 
         const urlSearchParams = new URLSearchParams({
           url: path,
-          secret: env('PREVIEW_SECRET'), // A password you create
+          secret: your-secret-key, // A password you create
           status,
         });
 
