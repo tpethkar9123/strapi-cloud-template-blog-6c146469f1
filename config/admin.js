@@ -17,7 +17,7 @@ module.exports = ({ env }) => ({
   preview: {
     enabled: true,
     config: {
-      allowedOrigins: "http://localhost:1337",
+      allowedOrigins: "http://localhost:3000",
       async handler(uid, { documentId, locale, status }) {
         const document = await strapi.documents(uid).findOne({
           documentId,
@@ -35,7 +35,7 @@ module.exports = ({ env }) => ({
           status,
         });
 
-        return `http://localhost:1337/api/preview?${urlSearchParams}`;
+        return `http://localhost:3000/api/preview?${urlSearchParams}`;
       },
     },
   },
