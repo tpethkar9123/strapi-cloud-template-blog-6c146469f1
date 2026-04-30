@@ -17,23 +17,25 @@ module.exports = ({ env }) => ({
   preview: {
     enabled: true,
     config: {
-      // ADDED QUOTES AROUND THE URL BELOW
-      allowedOrigins: "https://github.com/tpethkar9123/strapi-cloud-template-blog-6c146469f1", 
+      allowedOrigins: "http://localhost:3000",
       async handler(uid, { documentId, locale, status }) {
-        const document = await strapi.documents(uid).findOne({ documentId });
-        
+        const document = await strapi.documents(uid).findOne({
+          documentId,
+          locale
+        });
+
+        if (!document) return null;
+
         let path = "/";
         if (uid === "api::article.article") path = `/blog/${document.slug}`;
         if (uid === "api::about.about") path = "/about";
 
         const urlSearchParams = new URLSearchParams({
           url: path,
-          secret: "your-secret-key", // ADDED QUOTES AROUND THE SECRET
           status,
         });
 
-        // ADDED QUOTES AROUND THE URL BELOW
-        return `https://github.com/tpethkar9123/strapi-cloud-template-blog-6c146469f1/api/preview?${urlSearchParams}`;
+        return `http://localhost:3000/api/preview?${urlSearchParams}`;
       },
     },
   },
