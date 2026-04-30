@@ -18,7 +18,7 @@ module.exports = ({ env }) => ({
     enabled: true,
     config: {
       // ADDED QUOTES AROUND THE URL BELOW
-      allowedOrigins: "https://github.com/tpethkar9123/strapi-cloud-template-blog-6c146469f1", 
+      allowedOrigins: "http://localhost:3000", 
       async handler(uid, { documentId, locale, status }) {
         const document = await strapi.documents(uid).findOne({ documentId });
         
@@ -33,7 +33,7 @@ module.exports = ({ env }) => ({
         });
 
         // ADDED QUOTES AROUND THE URL BELOW
-        return `https://github.com/tpethkar9123/strapi-cloud-template-blog-6c146469f1/api/preview?${urlSearchParams}`;
+        return `http://localhost:3000/api/preview?${urlSearchParams}`;
       },
     },
   },
